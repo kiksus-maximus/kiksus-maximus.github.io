@@ -167,7 +167,7 @@ p{
 }
 
 .header-top {
-    padding: clamp(0.35rem, 0.9vw, 0.9rem) 0;
+    padding: clamp(0.75rem, 1.5vw, 1.5rem) 0;
 }
 
 .brand{
@@ -191,6 +191,11 @@ p{
 .brand-name{
     font-size: 30px;
     letter-spacing: .10px;
+}
+
+.brand img {
+    max-height: 80px;
+    width: auto;
 }
 
 .searchbar{
@@ -261,29 +266,30 @@ p{
 
 .site-nav ul{
     list-style: none;
-    padding: var(--space-1) 0;
+    padding: var(--space-2) 0;
     display: flex;
-    flex-wrap: nowrap;
-    gap: 0;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: space-around;
     align-items: center;
 }
 
-.site-nav li{ flex: 1; }
-.site-nav a{
+.site-nav li{ flex: 0 1 auto; }
+.site-nav a, .site-nav span{
     display: block;
-    width: 100%;
-    padding: clamp(0.35rem, 0.9vw, 0.9rem) clamp(0.6rem, 1.4vw, 1.4rem);
+    padding: clamp(0.5rem, 0.9vw, 0.9rem) clamp(1rem, 1.5vw, 1.5rem);
     background: var(--blue);
     border-radius: 15px;
     color: var(--offwhite);
     text-align: center;
-    min-width: initial;
+    text-decoration: none;
+    min-width: auto;
+    white-space: nowrap;
 }
 
-.site-nav a{ position: relative; overflow: hidden; }
-.site-nav a::after{ content: ""; position: absolute; inset: 0; background: var(--offwhite); opacity: 0; border-radius: inherit; pointer-events: none; }
-.site-nav a:hover::after{ opacity: 0.14; }
+.site-nav a, .site-nav span{ position: relative; overflow: hidden; }
+.site-nav a::after, .site-nav span::after{ content: ""; position: absolute; inset: 0; background: var(--offwhite); opacity: 0; border-radius: inherit; pointer-events: none; }
+.site-nav a:hover::after, .site-nav span:hover::after{ opacity: 0.14; }
 .site-nav a[aria-current="page"]::after{ opacity: 0.22; }
 .site-nav a[aria-current="page"]{ font-weight: 700; }
 
@@ -540,6 +546,56 @@ p{
 .btn-primary{ padding: 0.7rem 1.2rem; border-radius: 8px; }
 .btn-secondary{ padding: 0.6rem 1rem; border-radius: 8px; }
 .sr-only{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Contact form styles */
+.contact-form{
+    background: #fff;
+    border-radius: 12px;
+    padding: var(--space-2);
+    max-width: 600px;
+    margin: var(--space-2) auto;
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.input-section{
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: var(--space-2);
+}
+
+.input-section label{
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.input-section input[type="text"],
+.input-section input[type="email"],
+.input-section select,
+.input-section textarea{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    background: #fff;
+    font-family: var(--font-normal);
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.input-section input:focus,
+.input-section select:focus,
+.input-section textarea:focus{
+    outline: 3px solid rgba(25,118,210,0.12);
+    border-color: var(--blue);
+}
+
+.input-section textarea{
+    min-height: 120px;
+    resize: vertical;
+}
 
 @media (max-width: 600px){
     .apply-form{ gap: 0.6rem; }

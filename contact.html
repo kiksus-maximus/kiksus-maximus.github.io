@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>MCAST | Contact Us</title>
+    <title>MCAST | Contact</title>
 </head>
 <body>
 
@@ -22,43 +22,60 @@
         <nav class="site-nav" aria-label="Primary">
             <div class="container">
                 <ul class="d-flex">
-                    <li><a href="#" class="disabled">Study</a></li>
-                    <li><a href="#" class="disabled">Services</a></li>
-                    <li><a href="#" class="disabled">Research</a></li>
-                    <li><a href="#" class="disabled">About</a></li>
-                    <li><a href="#" class="disabled">Students Info Page</a></li>
+                    <li><span class="disabled">Study</span></li>
+                    <li><span class="disabled">Services</span></li>
+                    <li><span class="disabled">Research</span></li>
+                    <li><span class="disabled">About</span></li>
+                    <li><span class="disabled">Students Info Page</span></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main class="container">
-<section class="title-section">
-            <h1>Contact Us</h1>
-            <p class="text-grey">Get in touch with MCAST</p>
+        <section class="p-2">
+            <h1>Contact MCAST</h1>
+            <p class="text-grey">Use this form to open your email client and send us a message.</p>
         </section>
 
-        <section class="d-grid grid-2col sm-grid-1col gap-3 p-2">
-            <div class="panel p-3">
-                <h2>Email</h2>
-                <p><a class="link" href="mailto:info@mcast.edu.mt">info@mcast.edu.mt</a></p>
+        <form action="mailto:info@mcast.edu.mt" method="post" enctype="text/plain" class="contact-form">
+
+            <div class="input-section">
+                <label for="input-topic">Topic:</label>
+                <select name="topic" id="input-topic" required>
+                    <option value="" disabled selected>Choose a Topic</option>
+                    <option value="course-information">Course Information</option>
+                    <option value="applications">Applications & Admissions</option>
+                    <option value="student-support">Student Support</option>
+                    <option value="events-calendar">Events / Calendar</option>
+                    <option value="other">Other</option>
+                </select>
             </div>
 
-            <div class="panel p-3">
-                <h2>Phone</h2>
-                <p><a class="link" href="tel:+35624441000">+356 2444 1000</a></p>
+            <div class="input-section">
+                <label for="input-name">Name:</label>
+                <input type="text" name="name" id="input-name"
+                    placeholder="Your full name" required>
             </div>
 
-            <div class="panel p-3">
-                <h2>Address</h2>
-                <p>Triq il-Qala, Mosta 2080, Malta</p>
+            <div class="input-section">
+                <label for="input-email">Email:</label>
+                <input type="email" name="email" id="input-email"
+                    placeholder="me@example.com" required>
             </div>
 
-            <div class="panel p-3">
-                <h2>Hours</h2>
-                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            <div class="input-section">
+                <label for="input-message">Message:</label>
+                <textarea name="message" id="input-message"
+                    cols="30" rows="10"
+                    placeholder="Write your message here..."
+                    required minlength="20"></textarea>
             </div>
-        </section>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+
+        </form>
     </main>
 
     <footer class="site-footer">
